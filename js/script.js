@@ -2,17 +2,32 @@ const app = new Vue({
   el: '#app',
 
   data: {
-    arrDischi: [],
+    arrRecords: [],
+    arrGenres: [],
+    arrYears: [],
+    apiURL: 'http://localhost:8888/php-ajax-dischi/api.php',
+    selectGenre: 'all',
   },
 
-  mounted() {
-    axios.get('http://localhost:8888/php-ajax-dischi/api.php')
+  methods: {
+    getAPI() {
+      axios.get(this.apiURL, {
+        params: {
+          genre: this.selectGenre
+        }
+      })
       .then(res => {
-        this.arrDischi = res.data;
+        this.arrRecords = res.data.records;
+        this.arrGenres = res.data.genres;
       })
       .catch(err => {
         console.log(err);
       })
+    }
+  },
+
+  created() {
+    this.getAPI();
   }
 
 })

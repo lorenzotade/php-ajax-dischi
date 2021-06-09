@@ -7,11 +7,20 @@
 
 header {
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #2D3A46;
   padding: 15px 25px;
 }
 header img {
   height: 100%;
+}
+header select {
+  padding: 10px 20px;
+  width: 200px;
+  border: 0;
+  outline: none;
 }
 
 main {
@@ -37,7 +46,7 @@ main .record .record-details {
   padding: 20px;
   margin: 15px;
   background-color: #2D3A46;
-  min-height: 320px;
+  min-height: 340px;
 }
 main .record .record-details img {
   width: 100%;
@@ -53,11 +62,11 @@ main .record .record-details h2 {
 main .record .record-details p {
   color: #808080;
   font-size: .9rem;
-  margin-bottom: 0;
 }
 main .record .record-details p.year {
   font-size: .8rem;
   font-weight: 300;
+  margin-top: 6px;
 }
 
 @media all and (min-width: 1500px) {
